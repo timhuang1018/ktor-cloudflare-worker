@@ -15,6 +15,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import coil3.ImageLoader
+import coil3.compose.AsyncImage
+import coil3.compose.LocalPlatformContext
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
 import org.koin.compose.koinInject
@@ -61,9 +64,6 @@ fun UploadSession(uploadViewModel: UploadViewModel = koinInject()) {
             UploadState.Success -> {
                 Text("Upload success")
             }
-            is UploadState.Error -> {
-                Text(state.message)
-            }
             else -> {
                 Button(onClick = uploadViewModel::upload) {
                     Text("Upload image")
@@ -75,16 +75,27 @@ fun UploadSession(uploadViewModel: UploadViewModel = koinInject()) {
 }
 
 @Composable
-fun FetchSession() {
+fun FetchSession(fetchViewModel: FetchViewModel = koinInject()) {
     Surface(modifier = Modifier.padding(16.dp)) {
 
+        val stateChanged by fetchViewModel.state.collectAsState()
 
-        Button(onClick = { /*TODO*/ }) {
-            Text("Fetch image")
+        when(val state = stateChanged){
+            FetchState.Fetching -> {
+                CircularProgressIndicator()
+            }
+            is FetchState.Success -> {
+                AsyncImage(
+                    model = state.url,
+                    contentDescription = null,
+                    imageLoader = ImageLoader(LocalPlatformContext.current)
+                )
+            }
+            else -> {
+                Button(onClick = fetchViewModel::fetch) {
+                    Text("Fetch image")
+                }
+            }
         }
-        //        AsyncImage(
-//            model = "https://example.com/image.jpg",
-//            contentDescription = null,
-//        )
     }
 }

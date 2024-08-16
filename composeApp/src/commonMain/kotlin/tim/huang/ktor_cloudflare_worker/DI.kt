@@ -8,5 +8,6 @@ import org.koin.dsl.module
 
 val shareModule = module {
     singleOf(::UploadViewModel)
+    singleOf(::FetchViewModel)
     single { MainScope() }.bind<CoroutineScope>()
 }

@@ -44,7 +44,7 @@ class UploadViewModel(
 
     }
 
-    suspend fun uploadFile(path: String, byteArray: ByteArray, contentType: String, headers: Map<String, String> = emptyMap()): String {
+    private suspend fun uploadFile(path: String, byteArray: ByteArray, contentType: String, headers: Map<String, String> = emptyMap()): String {
 
         val response: HttpResponse = defaultHttpClient.put(UrlBuilder.buildUrl("https://upload-files-toy-worker.t8522192.workers.dev", path)) {
             headers.forEach { (key, value) -> header(key, value) }
