@@ -18,7 +18,7 @@ kotlinx-coroutines = "1.8.1"
 koin-bom = "4.0.0-RC1"
 molecule = "2.0.0"
 coil = "3.0.0-alpha10"
-ktor = "3.0.0-beta-2"
+ktor = "2.3.12"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -42,6 +42,11 @@ coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
 coil-network = { module = "io.coil-kt.coil3:coil-network-ktor2", version.ref = "coil" }
 coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-content = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-json = { group = "io.ktor", name = "ktor-client-json", version.ref = "ktor" }
+ktor-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
+ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-java = { module = "io.ktor:ktor-client-java", version.ref = "ktor" }
@@ -54,3 +59,6 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+
+[bundles]
+ktor-common = ["ktor-client-core", "ktor-content", "ktor-serialization-json", "ktor-json", "ktor-serialization", "ktor-logging"]

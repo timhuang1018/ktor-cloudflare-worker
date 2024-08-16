@@ -74,7 +74,7 @@ kotlin {
             implementation(libs.coil)
             implementation(libs.coil.compose.core)
             implementation(libs.coil.network) //ktor support
-            implementation(libs.ktor.client.core)
+            implementation(libs.bundles.ktor.common)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
