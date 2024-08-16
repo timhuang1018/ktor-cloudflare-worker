@@ -28,4 +28,5 @@ dependencyResolutionManagement {
     }
 }
 
-include(":composeApp")
+include(":kcw-client")
+include(":sample-multiplatform")
