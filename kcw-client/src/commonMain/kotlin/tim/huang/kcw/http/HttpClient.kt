@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 
 expect fun httpClient(config: HttpClientConfig<*>.() -> Unit = {}): HttpClient
 
-val defaultHttpClient: HttpClient by lazy {
+internal val defaultHttpClient: HttpClient by lazy {
     httpClient{
         expectSuccess = true
         install(ContentNegotiation) {
