@@ -14,7 +14,6 @@ kotlin {
                 outputFileName = "kcw.js"
             }
         }
-        binaries.executable()
     }
     
     androidTarget {

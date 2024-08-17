@@ -13,6 +13,8 @@ class FetchViewModel(
     fun fetch() {
         state.value = FetchState.Fetching
         coroutineScope.launch {
+            //here we pass url to AsyncImage to load from its own
+            //but can fetch the image url from worker as well, see KCWClient.getImage
             state.value =
                 FetchState.Success("https://upload-files-toy-worker.t8522192.workers.dev/projects/test123/logo")
         }

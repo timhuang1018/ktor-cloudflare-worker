@@ -68,6 +68,9 @@ fun UploadSession(uploadViewModel: UploadViewModel = koinInject()) {
             UploadState.Success -> {
                 Text("Upload success")
             }
+            is UploadState.Error -> {
+                Text("Upload failed: ${state.message}")
+            }
             else -> {
                 Button(onClick = uploadViewModel::upload) {
                     Text("Upload image")
