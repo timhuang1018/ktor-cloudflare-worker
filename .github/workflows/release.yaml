@@ -1,7 +1,9 @@
 name: Publish Artifacts
 on:
-  release:
-    types: [prereleased, released]
+  push:
+    branches: [ "main" ]
+#  release:
+#    types: [prereleased, released]
 jobs:
   build:
     name: Build
@@ -21,7 +23,10 @@ jobs:
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
         run: |
           brew install gpg
-          echo "$SIGNING_KEY" | gpg --dearmor > ${HOME}/secring.gpg
+          gpg --version
+          echo "$SIGNING_KEY" > private_key.asc
+          gpg --dearmor < private_key.asc > ${HOME}/secring.gpg
+#          echo "$SIGNING_KEY" | gpg --dearmor > ${HOME}/secring.gpg
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
