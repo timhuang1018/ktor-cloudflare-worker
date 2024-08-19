@@ -72,7 +72,7 @@ kotlin {
             implementation(libs.coil)
             implementation(libs.coil.compose.core)
             implementation(libs.coil.network) //ktor support
-            implementation(project(":kcw-client"))
+            implementation(libs.kcw.client)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -85,7 +85,7 @@ kotlin {
 }
 
 android {
-    namespace = "tim.huang.kcw"
+    namespace = "io.keeppro.kcw"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -93,7 +93,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "tim.huang.kcw"
+        applicationId = "io.keeppro.kcw"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -123,16 +123,16 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "tim.huang.kcw.MainKt"
+        mainClass = "io.keeppro.kcw.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "tim.huang.kcw"
+            packageName = "io.keeppro.kcw"
             packageVersion = "1.0.0"
         }
     }
 }
 
 compose.resources {
-    packageOfResClass = "tim.huang.kcw"
+    packageOfResClass = "io.keeppro.kcw"
 }
