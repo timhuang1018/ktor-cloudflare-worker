@@ -19,6 +19,8 @@ koin-bom = "4.0.0-RC1"
 molecule = "2.0.0"
 coil = "3.0.0-alpha10"
 ktor = "2.3.12"
+kcw-client = "1.0.0"
+mavenPublish = "0.28.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -51,6 +53,7 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-java = { module = "io.ktor:ktor-client-java", version.ref = "ktor" }
 ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
+kcw-client = { module = "io.keeppro:kcw-client", version.ref = "kcw-client" }
 
 
 [plugins]
@@ -59,6 +62,7 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublish" }
 
 [bundles]
 ktor-common = ["ktor-client-core", "ktor-content", "ktor-serialization-json", "ktor-json", "ktor-serialization", "ktor-logging"]
