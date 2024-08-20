@@ -34,7 +34,7 @@ implementation("io.keeppro:ktor-cloudflare-worker:1.0.2")
 
 ### Usage
 
-Check out the [examples](https://github.com/timhuang1018/ktor-cloudflare-worker/tree/main/examples) directory to see how you can integrate this library into your projects.
+Check out the [examples](https://github.com/timhuang1018/ktor-cloudflare-worker/tree/main/sample-multiplatform) directory to see how you can integrate this library into your projects.
 
 ```kotlin
         coroutineScope.launch(exceptionHandler) {
