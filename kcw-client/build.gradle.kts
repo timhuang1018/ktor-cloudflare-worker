@@ -88,7 +88,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.keeppro",
         artifactId = "kcw-client",
-        version = "1.0.0"
+        version = "1.0.2"
     )
 
     // Configure POM metadata for the published artifact
